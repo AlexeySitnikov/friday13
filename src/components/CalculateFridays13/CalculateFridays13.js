@@ -14,13 +14,11 @@ export function CalculateFridays13({ dayOfWeek, leapYear }) {
   for (const month in currentYear) {
     const days = currentYear[month]
     for (let day = 1; day <= days; day += 1) {
-      // console.log(`${day} day of week ${getDayOfWeek({ day, startDay })}`)
       if (day === days) {
         startDay = currentWeek[getDayOfWeek({ day, startDay })] + 1
       }
       if ((day === 13) && (getDayOfWeek({ day, startDay }) === 'Friday')) {
         countOfFridays13 += 1
-        // console.log(`${day} day of week ${getDayOfWeek({ day, startDay })}`)
       }
     }
   }

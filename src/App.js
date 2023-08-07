@@ -15,7 +15,7 @@ function App() {
   const onClickCalculateButtonHandler = (e) => {
     e.stopPropagation()
     e.preventDefault()
-    console.log(CalculateFridays13({ dayOfWeek, leapYear }))
+    CalculateFridays13({ dayOfWeek, leapYear })
   }
 
   return (
