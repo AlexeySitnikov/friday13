@@ -1,4 +1,4 @@
-export function Year({ leapYear }) {
+export function getCurrentYear({ leapYear }) {
   const currentYear = {
     January: 31,
     February: leapYear ? 29 : 28,

@@ -15,14 +15,14 @@ function App() {
   const onClickCalculateButtonHandler = (e) => {
     e.stopPropagation()
     e.preventDefault()
-    CalculateFridays13({ dayOfWeek, leapYear })
+    console.log(`count of 13th of Friday is ${CalculateFridays13({ dayOfWeek, leapYear })}`)
   }
 
   return (
     <div className="App">
       <div>
         <p>Choose the day of week for 1st January</p>
-        <Days leapYear={leapYear} setDayOfWeek={setDayOfWeek} dayOfWeek={dayOfWeek} />
+        <Days setDayOfWeek={setDayOfWeek} dayOfWeek={dayOfWeek} />
       </div>
       <div>
         <label htmlFor="leapYear">
