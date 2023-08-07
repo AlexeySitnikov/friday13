@@ -1,5 +1,5 @@
 export function SingleDay({ day }) {
   return (
-    <option value={`${day}`}>{`${day}`}</option>
+    <option value={day}>{day}</option>
   )
 }

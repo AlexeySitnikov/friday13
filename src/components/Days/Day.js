@@ -1,25 +1,24 @@
 import { SingleDay } from './SingleDay'
 
-export function Days() {
+export function Days({ dayOfWeek, setDayOfWeek }) {
   const days = [
     'Monday',
     'Tuesday',
     'Wednesday',
     'Thursday',
     'Friday',
-    'SaturnDay',
+    'Saturnday',
     'Sunday',
   ]
 
   const onClickButtonHandler = (e) => {
-    e.preventDefault()
-    e.stopPropagation()
-    console.log(e.target.value)
+    setDayOfWeek(e.target.value)
   }
+
   return (
-    <select onChange={onClickButtonHandler}>
+    <select onChange={onClickButtonHandler} value={dayOfWeek}>
       {days.map((el) => (
-        <SingleDay day={el} key={crypto.randomUUID()} />
+        <SingleDay day={el} dayOfWeek={dayOfWeek} key={crypto.randomUUID()} />
       ))}
     </select>
   )
