@@ -6,22 +6,23 @@ export function Month({ month }) {
   const startDay = daysOrder[month[0]]
   let week = ['-', '-', '-', '-', '-', '-', '-']
 
-  let i = 0
-  for (let index = 0; index < (startDay - 1); index += 1) {
-    week.push('-')
-    i = index + 1
-  }
+  // let i = 0
+  // for (let index = 0; index < (startDay - 1); index += 1) {
+  //   // week.push('-')
+  //   i = index + 1
+  // }
 
+  let i = startDay - 1
   for (let index = 0; index < month.length; index += 1) {
-    i += 1
-    if (i === 7) {
-      week.push(month[index])
-      i = 0
-      week = []
+    if ((i === 6) || (index === month.length - 1)) {
+      week[i] = month[index]
+      i = -1
+      console.log({ week })
+      week = ['-', '-', '-', '-', '-', '-', '-']
     } else {
-      week.push(month[index])
+      week[i] = month[index]
     }
-    console.log(week)
+    i += 1
   }
 
   return (
