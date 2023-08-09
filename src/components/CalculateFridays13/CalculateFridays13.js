@@ -1,15 +1,14 @@
-/* eslint-disable guard-for-in */
 /* eslint-disable no-restricted-syntax */
-import { daysOrder } from '../constrains/daysOrder'
+/* eslint-disable guard-for-in */
 import { getCurrentYear } from '../constrains/getCurrentYear'
 import { getDayOfWeek } from '../constrains/getDayOfWeek'
+import { nameOfDays } from '../constrains/nameOfDays'
 
 export function CalculateFridays13({ dayOfWeek, leapYear }) {
   const currentYear = getCurrentYear({ leapYear })
-  const Year = {
-  }
+  const Year = {}
 
-  let startDay = daysOrder[dayOfWeek]
+  let startDay = nameOfDays.findIndex((day) => (day === dayOfWeek)) + 1
   let countOfFridays13 = 0
 
   for (const month in currentYear) {
@@ -18,13 +17,13 @@ export function CalculateFridays13({ dayOfWeek, leapYear }) {
     for (let day = 1; day <= days; day += 1) {
       Year[month].push(getDayOfWeek({ day, startDay }))
       if (day === days) {
-        startDay = daysOrder[getDayOfWeek({ day, startDay })] + 1
+        const dayName = getDayOfWeek({ day, startDay })
+        startDay = nameOfDays.findIndex((el) => (el === dayName)) + 2
       }
-      if ((day === 13) && (getDayOfWeek({ day, startDay }) === 'Friday')) {
+      if ((day === 13) && (getDayOfWeek({ day, startDay }) === 'Fr')) {
         countOfFridays13 += 1
       }
     }
   }
-  // console.log({ Year })
   return { countOfFridays13, Year }
 }

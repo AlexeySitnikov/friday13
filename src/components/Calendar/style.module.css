@@ -1,8 +1,48 @@
 .month{
   display: flex;
   flex-direction: column;
+  margin-top: 24px;
+  margin-left: 24px;
+}
+
+.monthName{
+  display: flex;
+  justify-content: center;
+  font-style: italic;
+  font-size: 24px;
+  font-weight: bold;
+  color: chocolate;
 }
 
 .week{
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  margin-top: 4px;
+}
+
+.day{
   display: flex;
+  justify-content: center;
+  font-size: 20px;
+}
+
+.hollyday{
+  display: flex;
+  justify-content: center;
+  color: crimson;
+  font-size: 20px;
+  
+}
+
+.nameOfDays{
+  margin-top: 4px;
+  text-decoration: underline;
+}
+
+.friday13{
+  display: flex;
+  justify-content: center;
+  background-color:crimson;
+  border-radius: 35%;
+  color: azure;
 }

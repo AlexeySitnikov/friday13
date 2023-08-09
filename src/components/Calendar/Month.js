@@ -1,33 +1,42 @@
-import { daysOrder } from '../constrains/daysOrder'
+import { nameOfDays } from '../constrains/nameOfDays'
 import { Day } from './Day'
+import { Week } from './Week'
 import style from './style.module.css'
 
-export function Month({ month }) {
-  const startDay = daysOrder[month[0]]
-  let week = ['-', '-', '-', '-', '-', '-', '-']
-
-  // let i = 0
-  // for (let index = 0; index < (startDay - 1); index += 1) {
-  //   // week.push('-')
-  //   i = index + 1
-  // }
+export function Month({ month, monthName }) {
+  const startDay = nameOfDays.findIndex((day) => (day === month[0])) + 1
+  const weeksOfMonth = {}
+  let weeksCount = 0
+  weeksOfMonth[weeksCount] = ['', '', '', '', '', '', '']
 
   let i = startDay - 1
   for (let index = 0; index < month.length; index += 1) {
     if ((i === 6) || (index === month.length - 1)) {
-      week[i] = month[index]
+      weeksOfMonth[weeksCount][i] = index + 1
+      if ((index !== month.length - 1)) {
+        weeksCount += 1
+        weeksOfMonth[weeksCount] = ['', '', '', '', '', '', '']
+      }
       i = -1
-      console.log({ week })
-      week = ['-', '-', '-', '-', '-', '-', '-']
     } else {
-      week[i] = month[index]
+      weeksOfMonth[weeksCount][i] = index + 1
     }
     i += 1
   }
 
+  const weeks = Object.keys(weeksOfMonth).map((week) => weeksOfMonth[week])
+
   return (
     <div className={`${style.month}`}>
-      {month.map((day) => <Day day={day} key={crypto.randomUUID()} />)}
+      <div className={`${style.monthName}`}>
+        {monthName}
+      </div>
+      <div className={`${style.nameOfDays}`}>
+        <div className={`${style.week}`}>
+          {nameOfDays.map((nameOfDay) => <Day day={nameOfDay} key={crypto.randomUUID()} />)}
+        </div>
+      </div>
+      {weeks.map((week) => <Week week={week} key={crypto.randomUUID()} />)}
     </div>
   )
 }

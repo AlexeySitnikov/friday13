@@ -1,9 +1,9 @@
 export const nameOfDays = [
-  'Monday',
-  'Tuesday',
-  'Wednesday',
-  'Thursday',
-  'Friday',
-  'Saturnday',
-  'Sunday',
+  'Mo',
+  'Tu',
+  'We',
+  'Th',
+  'Fr',
+  'Sa',
+  'Su',
 ]

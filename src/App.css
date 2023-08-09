@@ -8,6 +8,15 @@
 
 
 .Calendar{
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.Friday13{
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  margin-top: 8px;
+  text-decoration:underline;
+  font-size: 1.1rem;
 }
